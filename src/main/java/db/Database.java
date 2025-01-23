@@ -158,7 +158,7 @@ public class Database {
 
     public static List<Comment> findCommentsByArticleId(Long articleId) {
         List<Comment> comments = new ArrayList<>();
-        String sql = "SELECT * FROM comments WHERE article_id = ? ORDER BY id ASC";
+        String sql = "SELECT * FROM comments WHERE article_id = ? ORDER BY id DESC";
         try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setLong(1, articleId);
